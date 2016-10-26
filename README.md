@@ -10,18 +10,22 @@ Each of your scripts must be written in a file named `atus1.sql`, `atus2.sql`, e
 The answers should be placed in `SOLUTIONS`.
 
 1. Average video game playing for men and women, in three ten-year age groups from 20-30, 30-40, 40-50.
-2. Whether or not the respondent worked last week (1 = yes, 2 = no), grouped by whether or not
-   a spouse or partner (1 or 2) was present, or not (3).
+   * Hint: you can do multiple `group by` variables.
+2. Whether or not the respondent worked last week (1 = yes, 2 = no; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
+   a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
 3. State with the lowest fraction of high school graduates.
+   * [CPS codebook](http://www.bls.gov/tus/atuscpscodebk15.pdf), variable PEEDUCA -- 39 or higher.
 4. Marital status (spouse or partner present), by educational attainment.
+   * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
 5. Average housework (code 02XXXX) by sex and educational attainment.
-6. Married by attend religions services, Sunday (1), Friday (6) or Saturday (7) only, and in households with kids.
-7. Daily time spent directly engaging children, by sex.  (Adapt from class.)
+6. Respondent married (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services, Sunday (1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
+7. Daily time spent directly engaging children, by sex.  (Read, understand, and adapt class example.  Use cps `sex` variable, 1 for men, 2 for women.)
 
 ## Create and Query a Table
 
 The Chicago salaries file, it turns out, is not fit to be loaded into a database from the get-go.
 This is a great moment for some practice with `sed`!
+
 * The empty lines and headers themselves are a nuisance.  Remove lines without dollar signs.
 * The `sqlite3` importer doesn't recognize quotation marks, so we need to get rid of these.
 * The dollar signs would stop us from manipulating the salary values as numbers.
