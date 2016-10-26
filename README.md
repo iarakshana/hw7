@@ -23,7 +23,12 @@ The answers should be placed in `SOLUTIONS`.
 
 ## Create and Query a Table
 
-The Chicago salaries file, it turns out, is not fit to be loaded into a database from the get-go.
+The Chicago salaries file, it turns out, is not fit to be loaded into a database from the get-go.  First get it by
+
+```
+curl https://data.cityofchicago.org/api/views/xzkq-xp2w/rows.csv -o salaries.csv
+```
+
 This is a great moment for some practice with `sed`!
 
 * The empty lines and headers themselves are a nuisance.  Remove lines without dollar signs.
