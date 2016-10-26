@@ -1,6 +1,6 @@
 # Structured Query Language  
 
-The homework is due, November 2 at 1:30am.  You can accept it, [here]().
+The homework is due, November 2 at 1:30am.  You can accept it, [here](https://classroom.github.com/assignment-invitations/de7acce809fc99f051f534d4b454ba0a).
 
 ## Time Use Survey
 
