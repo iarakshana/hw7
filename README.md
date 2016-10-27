@@ -9,7 +9,7 @@ You can find the database [here](http://tinyurl.com/z24cdoz).
 Each of your scripts must be written in a file named `atus1.sql`, `atus2.sql`, etc.
 The answers should be placed in `SOLUTIONS`.
 
-1. Average video game playing for men and women, in three ten-year age groups from 20-30, 30-40, 40-50.
+1. Average (video) game playing (code 120307; [activity codes](http://www.bls.gov/tus/lexiconwex2015.pdf)) for men and women (1 and 2), in three ten-year age groups from 20-30, 30-40, 40-50.
    * Hint: you can do multiple `group by` variables.
 2. Whether or not the respondent worked last week (1 = yes, 2 = no; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
    a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
