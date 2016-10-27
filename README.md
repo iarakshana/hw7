@@ -15,10 +15,10 @@ The answers should be placed in `SOLUTIONS`.
    a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
 3. State with the lowest fraction of high school graduates.
    * [CPS codebook](http://www.bls.gov/tus/atuscpscodebk15.pdf), variable PEEDUCA -- 39 or higher.
-4. Marital status (spouse or partner present), by educational attainment.
+4. Average marital status (spouse or partner present), by educational attainment.
    * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
 5. Average housework (code 02XXXX) by sex and educational attainment.
-6. Respondent married (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services, Sunday (1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
+6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services, Sunday (1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
 7. Daily time spent directly engaging children, by sex.  (Read, understand, and adapt class example.  Use cps `sex` variable, 1 for men, 2 for women.)
 
 ## Create and Query a Table
