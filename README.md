@@ -11,7 +11,7 @@ The answers should be placed in `SOLUTIONS`.
 
 1. Average (video) game playing (code 120307; [activity codes](http://www.bls.gov/tus/lexiconwex2015.pdf)) for men and women (1 and 2), in three ten-year age groups from 20-30, 30-40, 40-50.
    * Hint: you can do multiple `group by` variables.
-2. Whether or not the respondent worked last week (1 = yes, 2 = no; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
+2. Whether or not the respondent worked last week (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
    a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
 3. State with the lowest fraction of high school graduates.
    * [CPS codebook](http://www.bls.gov/tus/atuscpscodebk15.pdf), variable PEEDUCA -- 39 or higher.
