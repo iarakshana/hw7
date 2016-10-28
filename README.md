@@ -24,7 +24,7 @@ This has nothing to do with SQL generically, and just represents the fact that t
    * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
 5. Average housework (activity code 02XXXX, i.e., all those starting by 02, see [here](http://www.bls.gov/tus/lexiconwex2015.pdf) -- use floor division, which is the default) by sex and educational attainment.
 6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services (activity code 140101; [data dictionary](http://www.bls.gov/tus/lexiconwex2015.pdf)), Sunday (`dow_of_diary_day`, 1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
-7. Daily time spent directly engaging children (activity code [0301XX](http://www.bls.gov/tus/lexiconwex2015.pdf)), by sex.  (Read, understand, and adapt class example.  Use cps `sex` variable, 1 for men, 2 for women.)
+7. Daily time spent directly engaging children (activity code [0301XX](http://www.bls.gov/tus/lexiconwex2015.pdf)), by sex.  (Read, understand, and adapt [this example](https://github.com/harris-ippp/lectures/blob/master/05/ex/child_engagement_ed.sql).  (N.B. that the python example at p. 34 of the lecture relied on pandas for the second group by.)  Use cps `sex` variable, 1 for men, 2 for women.)
 
 ## Create and Query a Table
 
@@ -34,7 +34,7 @@ The Chicago salaries file, it turns out, is not fit to be loaded into a database
 curl https://data.cityofchicago.org/api/views/xzkq-xp2w/rows.csv -o salaries.csv
 ```
 
-This is a great moment for some practice with `sed`!
+This is a great moment for some practice with `sed` (you could even try `-i` for 'in place'.)
 
 * The empty lines and headers themselves are a nuisance.  Remove lines without dollar signs.
 * The `sqlite3` importer doesn't recognize quotation marks, so we need to get rid of these.
