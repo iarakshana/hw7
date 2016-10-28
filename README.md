@@ -51,7 +51,7 @@ CREATE TABLE chicago (Last TEXT, First TEXT, Position TEXT, Department TEXT, Sal
 
 Query this table to find:
 
-1. The average salary of police officers in the city.
+1. The average salary of firefighters in the city.
 2. Total expenditures on salaries in the Mayor's office.
 3. Number of people working in the three largest departments.
 
