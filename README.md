@@ -12,6 +12,8 @@ The answers should be placed in `SOLUTIONS`.
 Please remember throughout, that when using the tables `roster` or `cps`, you must require that the `line_no` value be 1.
 This has nothing to do with SQL generically, and just represents the fact that there are many people in a household, and the respondent and activities correspond to person "1."
 
+Always exclude negative values (non-responses!!).
+
 
 1. Average (video) game playing (code 120307; [activity codes](http://www.bls.gov/tus/lexiconwex2015.pdf)) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.  Use `edited_age` and `edited_sex` so you can keep it to just two tables.
    * Hint: you can do multiple `group by` variables.
