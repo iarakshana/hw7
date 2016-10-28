@@ -22,9 +22,9 @@ This has nothing to do with SQL generically, and just represents the fact that t
    * [CPS codebook](http://www.bls.gov/tus/atuscpscodebk15.pdf), variable PEEDUCA -- 39 or higher.
 4. Average marital status (spouse or partner present), by educational attainment.
    * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
-5. Average housework (code 02XXXX) by sex and educational attainment.
-6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services, Sunday (1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
-7. Daily time spent directly engaging children, by sex.  (Read, understand, and adapt class example.  Use cps `sex` variable, 1 for men, 2 for women.)
+5. Average housework (activity code 02XXXX, i.e., all those starting by 02, see [here](http://www.bls.gov/tus/lexiconwex2015.pdf) -- use floor division, which is the default) by sex and educational attainment.
+6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services (activity code 140101; [data dictionary](http://www.bls.gov/tus/lexiconwex2015.pdf)), Sunday (`dow_of_diary_day`, 1), Friday (6) or Saturday (7) only, for households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
+7. Daily time spent directly engaging children (activity code [0301XX](http://www.bls.gov/tus/lexiconwex2015.pdf)), by sex.  (Read, understand, and adapt class example.  Use cps `sex` variable, 1 for men, 2 for women.)
 
 ## Create and Query a Table
 
