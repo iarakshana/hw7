@@ -15,6 +15,7 @@ This has nothing to do with SQL generically, and just represents the fact that t
 
 1. Average (video) game playing (code 120307; [activity codes](http://www.bls.gov/tus/lexiconwex2015.pdf)) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.
    * Hint: you can do multiple `group by` variables.
+   * Hint: to group by age, use the fact that the default integer division in SQL is floor division.
 2. Whether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
    a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
 3. State with the lowest fraction of high school graduates.
