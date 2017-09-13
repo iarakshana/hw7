@@ -4,7 +4,9 @@ The homework is due, November 2 at 1:30am.  You can accept it, [here](https://cl
 
 ## Time Use Survey
 
-You can find the database [here](http://tinyurl.com/z24cdoz).
+You can find the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).
+
+Google will warn you that the file is too large to be scanned for viruses.  It's OK.  It's a database.
 
 Each of your scripts must be written in a file named `atus1.sql`, `atus2.sql`, etc.
 The answers should be placed in `SOLUTIONS`.
