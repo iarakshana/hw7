@@ -2,11 +2,66 @@
 
 The homework is due, November 2 at 1:30am.  You can accept it, [here](https://classroom.github.com/assignment-invitations/de7acce809fc99f051f534d4b454ba0a).
 
-## Time Use Survey
+## American Time Use Survey
 
-You can find the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).
+### Data Description
+
+The American Time Use Survey is a stupendous compendium of how Americans actually spend their time.  You can find documentation for the 2003-2015 files [here](https://www.bls.gov/tus/atusintcodebk0315.pdf).
+Every _activity_ a _respondent_ performs on a "diary day," is recorded in very narrow categories (activity "lexicon" [here](https://www.bls.gov/tus/lexiconnoex0315.pdf)).  
+In addition, basic information is recorded for a _roster_ of everyone on the same houshold,
+  and the data are linked to the Current Population Survey (CPS), another Census/BLS product.
+Taking all years into account, it gets pretty big.  Just the CSV files are around 1.5GB.
+But the structure of the files is basically a database, and so I have loaded
+Since the codes can be somewhat hard to interpret, 
+  I have edited the variable names (but not values) to make them more readable.
+
+There are four tables, which may be merged on the `case_id` and, where appropriate `line_no = 1` (see #1).
+1. **`roster`** contains a list of attributes of the people in a file.  
+   * You will use this file to get the `edited_sex` and `edited_age` of respondents and family members.
+   * It is very important to note that the respondent her/himself is ALWAYS `line_no = 1`.  This means that if you want to ask about the `activities` people of a given age are doing, you must require `line_no = 1` for your join.
+2. **`respondents`** contains descriptive data on time spent in various activities, as well as household characteristics and some labor force participation stats.
+3. **`activities`** lists the minutes spent in each activity, as enumerated in the [lexicon](https://www.bls.gov/tus/lexiconnoex0315.pdf).  You will use, in partcular:
+
+   | Code  | Activity |
+   | --- | --- |
+   | 120307 | Playing Games (incl. computers) |
+   | 02XXXX | Housework |
+   | 140101 | Relgious Services |
+   | 0301XX | Direct Engagement of HH Children: Playing or Ed. |
+   | 180381 | Travel for HH Children |
+
+4. **`cps`** (Current Population Survey) supplements the activity in `respondents` and `roster`, with data from this additional survey.  In particular, you might use `educational_attainment` and `family_income`. &nbsp;<details><summary>Educational Attainment Details</summary>
+  
+   Alternatively, consult `PEEDUCA` in the [codebook](https://www.bls.gov/tus/atuscpscodebk0315.pdf).
+  
+   | Code  | Educational Level |
+   | --- | --- |
+   | 31 | Less than 1st grade  |
+   | 32 | 1st, 2nd, 3rd, or 4th grade |
+   | 33 | 5th or 6th grade |
+   | 34 | 7th or 8th grade |
+   | 35 | 9th grade |
+   | 36 | 10th grade |
+   | 37 | 11th grade |
+   | 38 | 12th grade - no diploma |
+   | 39 | High school graduate - diploma or equivalent (GED) |
+   | 40 | Some college but no degree |
+   | 41 | Associate degree - occupational/vocational |
+   | 42 | Associate degree - academic program |
+   | 43 | Bachelor's degree (BA, AB, BS, etc.) |
+   | 44 | Master's degree (MA, MS, MEng, MEd, MSW, etc.) |
+   | 45 | Professional school degree (MD, DDS, DVM, etc.) |
+   | 46 | Doctoral degree (PhD, EdD, etc.) |
+ 
+   <details>
+
+For all the details, have a look at `.schema`.
+
+You can download the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).
 
 Google will warn you that the file is too large to be scanned for viruses.  It's OK.  It's a database.
+
+### Exercises
 
 Each of your scripts must be written in a file named `atus1.sql`, `atus2.sql`, etc.
 The answers should be placed in `SOLUTIONS`.
@@ -59,7 +114,7 @@ Query this table to find:
 2. Total expenditures on salaries in the Mayor's office.
 3. Number of people working in the three largest departments.
 
-Save each of your queries as `s1.sql`, `s2.sql`, etc., and mark the responses in SOLUTIONS.
+Save your queries as `s1.sql`, `s2.sql`, `s3.sql`, and mark the responses in SOLUTIONS.
 
 ## Never Forget Python
 
