@@ -20,7 +20,7 @@ There are four tables, which may be merged on the `case_id` and, where appropria
    * You will use this file to get the `edited_sex` and `edited_age` of respondents and family members.
    * It is very important to note that the respondent her/himself is ALWAYS `line_no = 1`.  This means that if you want to ask about the `activities` people of a given age are doing, you must require `line_no = 1` for your join.
 2. **`respondents`** contains descriptive data on time spent in various activities, as well as household characteristics and some labor force participation stats.
-3. **`activities`** lists the minutes spent in each activity, as enumerated in the [lexicon](https://www.bls.gov/tus/lexiconnoex0315.pdf).  You will use, in partcular:
+3. **`activities`** lists the minutes spent in each activity, as enumerated in the [lexicon](https://www.bls.gov/tus/lexiconnoex0315.pdf).  &nbsp;<details><summary>Relevant Activity Codes.</summary>
 
    | Code  | Activity |
    | --- | --- |
