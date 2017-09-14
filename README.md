@@ -101,7 +101,8 @@ This is a great moment for some practice with `sed` (you could even try `-i` for
 Once you've done this, import the table using the shortcut from class:
 
 ```
-CREATE TABLE chicago (Last TEXT, First TEXT, Position TEXT, Department TEXT, Salary REAL);
+CREATE TABLE chicago (Last TEXT, First TEXT, Position TEXT, Department TEXT, 
+                      FP TEXT, SH TEXT, Hours INTEGER, Salary REAL, Wage REAL);
 .mode csv
 .import salaries.csv chicago
 ```
@@ -112,7 +113,7 @@ Query this table to find:
 2. Total expenditures on salaries in the Mayor's office.
 3. Number of people working in the three largest departments.
 
-Save your queries as `s1.sql`, `s2.sql`, `s3.sql`, and mark the responses in SOLUTIONS.
+Save your queries as `s.sql`, and mark the responses in SOLUTIONS.
 
 ## Never Forget Python
 
