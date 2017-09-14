@@ -9,10 +9,12 @@ The homework is due, November 2 at 1:30am.  You can accept it, [here](https://cl
 The American Time Use Survey is a stupendous compendium of how Americans actually spend their time.  You can find documentation for the 2003-2015 files [here](https://www.bls.gov/tus/atusintcodebk0315.pdf).
 Every _activity_ a _respondent_ performs on a "diary day," is recorded in very narrow categories (activity "lexicon" [here](https://www.bls.gov/tus/lexiconnoex0315.pdf)).  In addition, basic information is recorded for a _roster_ of everyone on the same houshold,
   and the data are linked to the Current Population Survey (CPS), another Census/BLS product.
+
 Taking all years into account, it gets pretty big.  Just the CSV files are around 1.5GB.
-But the structure of the files is basically a database, and so I have loaded
+But the structure of the files is basically a database, and so I have loaded them together into (somewhat smaller, 200 MB) sqlite database.
 Since the codes can be somewhat hard to interpret, 
   I have edited the variable names (but not values) to make them more readable.
+Have a look at `.schema` to see all the variables.
 
 There are four tables, which may be merged on the `case_id` and, where appropriate `line_no = 1` (see #1).
 1. **`roster`** contains a list of attributes of the people in a file.  
@@ -54,11 +56,7 @@ There are four tables, which may be merged on the `case_id` and, where appropria
  
    <details>
 
-For all the details, have a look at `.schema`.
-
-You can download the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).
-
-Google will warn you that the file is too large to be scanned for viruses.  It's OK.  It's a database.
+You can download the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).  Google will warn you that the file is too large to be scanned for viruses.  It's OK.  It's a database.
 
 ### Exercises
 
@@ -71,17 +69,19 @@ This has nothing to do with SQL generically, and just represents the fact that t
 Always exclude negative values (non-responses!!).
 
 
-1. Average (video) game playing (code 120307) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.  Use `edited_age` and `edited_sex` so you can keep it to just two tables.
+1. Who likes games? Average (video) game playing (code 120307) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.  Use `edited_age` and `edited_sex` so you can keep it to just two tables.
    * Hint: you can do multiple `group by` variables.
    * Hint: to group by age, use the fact that the default integer division in SQL is floor division.
-2. Whether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](https://www.bls.gov/tus/atusintcodebk0315.pdf)), grouped by whether or not
-   a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
-3. State with the lowest fraction of high school graduates.  Refer to the table in the "twisty" above -- HS is 39.
+2. Working statWhether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](https://www.bls.gov/tus/atusintcodebk0315.pdf)).
+   Group on the presence of a partner (`spouse_or_partner_present`: spouse 1 or partner 2, v. none 3; see TRSPPRES in the [codebook](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
+3. State with the lowest fraction of high school graduates.  Refer to the table in the "twisty" above -- HS is 39.  If you haven't memorized the FIPS codes, you can find them [here](https://www.census.gov/geo/reference/ansi_statetables.html).
 4. Average marital status (`spouse_or_partner_present`; again 1 or 2, v. 3), by `educational_attainment`.
    * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
-5. Average housework (activity code 02XXXX, i.e., all those starting by 02, see [here](http://www.bls.gov/tus/lexiconwex2015.pdf) -- use floor division, which is the default) by sex and educational attainment.
-6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services (activity code 140101; [data dictionary](http://www.bls.gov/tus/lexiconwex2015.pdf)).  Consider only respondents reporting Sunday (`dow_of_diary_day`, 1), Friday (6) or Saturday (7), and households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
-7. Average daily time spent directly engaging children in hours (activity code [0301XX](http://www.bls.gov/tus/lexiconwex2015.pdf)), by sex.  You should require that there be children in the household, and that the respondent is in the labor force (`edited_labor_force_status` = 1 or 2).  Use roster `edited_sex` variable, 1 for men, 2 for women.  (Read, understand, and adapt [this example](https://github.com/harris-ippp/lectures/blob/master/05/ex/child_engagement_ed.sql); N.B. that the python example at p. 34 of the lecture relied on pandas for the second group by.)
+5. Average housework (activity code 02XXXX, i.e., all those starting by 02, see the [lexicon](http://www.bls.gov/tus/lexiconwex2015.pdf) -- use floor division, which is the default).  Group by `edited_sex` and `educational_attainment`.
+6. Respondent married average (`spouse_or_partner_present` = `TRSPPRES` = 1) grouped by attended religions services (activity code 140101; [data dictionary](http://www.bls.gov/tus/lexiconwex2015.pdf)).  Consider only respondents reporting Sunday (`dow_of_diary_day`, 1), Friday (6) or Saturday (7), and households with kids.  (Note that the most-naïve interpretation already dramatically understates the difference, due to contamination over which is the religious day).
+7. Average daily time spent directly engaging children in hours (activity codes 0301XX or 180381), by respondent sex. 
+   You should require that there be children in the household, and that the respondent is in the labor force (`edited_labor_force_status` = 1 or 2).
+   Use roster `edited_sex` variable, 1 for men, 2 for women.  (Read, understand, and adapt [this example](https://github.com/harris-ippp/lectures/blob/master/05/ex/child_engagement_ed.sql); N.B. that the python example at p. 34 of the lecture relied on pandas for the second group by.)
 
 ## Create and Query a Table
 
