@@ -7,8 +7,7 @@ The homework is due, November 2 at 1:30am.  You can accept it, [here](https://cl
 ### Data Description
 
 The American Time Use Survey is a stupendous compendium of how Americans actually spend their time.  You can find documentation for the 2003-2015 files [here](https://www.bls.gov/tus/atusintcodebk0315.pdf).
-Every _activity_ a _respondent_ performs on a "diary day," is recorded in very narrow categories (activity "lexicon" [here](https://www.bls.gov/tus/lexiconnoex0315.pdf)).  
-In addition, basic information is recorded for a _roster_ of everyone on the same houshold,
+Every _activity_ a _respondent_ performs on a "diary day," is recorded in very narrow categories (activity "lexicon" [here](https://www.bls.gov/tus/lexiconnoex0315.pdf)).  In addition, basic information is recorded for a _roster_ of everyone on the same houshold,
   and the data are linked to the Current Population Survey (CPS), another Census/BLS product.
 Taking all years into account, it gets pretty big.  Just the CSV files are around 1.5GB.
 But the structure of the files is basically a database, and so I have loaded
@@ -64,7 +63,7 @@ Google will warn you that the file is too large to be scanned for viruses.  It's
 ### Exercises
 
 Each of your scripts must be written in a file named `atus1.sql`, `atus2.sql`, etc.
-The answers should be placed in `SOLUTIONS`.
+You will read answers off of these tables and place them in `SOLUTIONS`, before completing a quiz on Canvas.
 
 Please remember throughout, that when using the tables `roster` or `cps`, you must require that the `line_no` value be 1.
 This has nothing to do with SQL generically, and just represents the fact that there are many people in a household, and the respondent and activities correspond to person "1."
@@ -72,14 +71,13 @@ This has nothing to do with SQL generically, and just represents the fact that t
 Always exclude negative values (non-responses!!).
 
 
-1. Average (video) game playing (code 120307; [activity codes](http://www.bls.gov/tus/lexiconwex2015.pdf)) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.  Use `edited_age` and `edited_sex` so you can keep it to just two tables.
+1. Average (video) game playing (code 120307) for men and women (1 and 2), in three ten-year age groups from 20-29, 30-39, 40-49.  Use `edited_age` and `edited_sex` so you can keep it to just two tables.
    * Hint: you can do multiple `group by` variables.
    * Hint: to group by age, use the fact that the default integer division in SQL is floor division.
-2. Whether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](http://www.bls.gov/tus/atusintcodebk15.pdf)), grouped by whether or not
+2. Whether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer; see TUFWK [here](https://www.bls.gov/tus/atusintcodebk0315.pdf)), grouped by whether or not
    a spouse or partner was present, or not (1 or 2, v. 3; see TRSPPRES; same [resource](http://www.bls.gov/tus/atusintcodebk15.pdf)). 
-3. State with the lowest fraction of high school graduates.
-   * [CPS codebook](http://www.bls.gov/tus/atuscpscodebk15.pdf), variable PEEDUCA -- 39 or higher.
-4. Average marital status (spouse or partner present; again 1 or 2, v. 3), by educational attainment.
+3. State with the lowest fraction of high school graduates.  Refer to the table in the "twisty" above -- HS is 39.
+4. Average marital status (`spouse_or_partner_present`; again 1 or 2, v. 3), by `educational_attainment`.
    * Use respondent `spouse_or_partner_present` and cps `educational_attainment`.  Require that the educational attainment be non-negative.
 5. Average housework (activity code 02XXXX, i.e., all those starting by 02, see [here](http://www.bls.gov/tus/lexiconwex2015.pdf) -- use floor division, which is the default) by sex and educational attainment.
 6. Respondent married average (spouse_or_partner_present = `TRSPPRES` = 1) grouped by attended religions services (activity code 140101; [data dictionary](http://www.bls.gov/tus/lexiconwex2015.pdf)).  Consider only respondents reporting Sunday (`dow_of_diary_day`, 1), Friday (6) or Saturday (7), and households with kids.  (Note that the most-naive interpretation understates the difference, significantly, due to contamination over which is the religious day).
