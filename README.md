@@ -56,7 +56,8 @@ There are four tables, which may be merged on the `case_id` and, where appropria
  
    <details>
 
-You can download the database from my [Google Drive](https://drive.google.com/uc?id=0B7GlTQC1GP2qUUZ3M3RCbl9raTg&export=download).  Google will warn you that the file is too large to be scanned for viruses.  It's OK.  It's a database.
+You can download the database from my [UC Box account](https://uchicago.box.com/s/1yvi09mtje40ep21mf4vt3obm70fvsms).
+
 
 ### Exercises
 
