@@ -1,6 +1,6 @@
 # Homework 7: Structured Query Language  
 
-The homework is due Wednesday November 15 at 1:30am.  You can accept it, [here](https://classroom.github.com/assignment-invitations/de7acce809fc99f051f534d4b454ba0a).
+The homework is due Wednesday November 15 at 1:30am.  You can accept it, [here](https://classroom.github.com/assignment-invitations/b113cb352b93c0517bde542d62df9b6e).
 
 ## American Time Use Survey
 
