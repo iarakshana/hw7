@@ -5,31 +5,30 @@
 
 2/ FRACTION WORKED LAST WEEK, SPOUSE/PARTNER PRESENT    :: 0.94
 
-3/ STATE WITH LOWEST FRACTION HS GRADUATES (FIPS)       :: 42
+*3/ STATE WITH LOWEST FRACTION HS GRADUATES (FIPS)       :: 54
 
-4/ FRACTION MASTERS RECIPIENTS (44) COHABITING          :: 0.86
+*4/ FRACTION MASTERS RECIPIENTS (44) COHABITING          :: 0.6498
 
 5/ DAILY HOURS SPENT DIRECTLY ENGAGING CHILDREN, MALE   :: 0.25
 5/ DAILY HOURS SPENT DIRECTLY ENGAGING CHILDREN, FEMALE :: 1.00
 
-6/ FRACTION WHO ATTENDED RELGIONS SERVICE MARRIED       :: 0.32
+*6/ FRACTION WHO ATTENDED RELGIONS SERVICE MARRIED       :: 0.69
 
 7/ RATIO OF FEMALE TO MALE HOUSEWORK, FOR PHDS          :: 1.96
 
 
 
-## SALARIES REVISITED 
+## SALARIES REVISITED
 
-1/ FIREFIGHTERS' AVERAGE SALARY                         :: $85500.09
+1/ FIREFIGHTERS' AVERAGE SALARY                         :: $92610.09
 
-2/ MAYOR'S OFFICE EXPENDITURES                          :: $12345678.90
+2/ MAYOR'S OFFICE EXPENDITURES                          :: $7719741.0
 
-3/ DEPARTMENT 1 (N EMPLOYEES)                           :: 12345
-3/ DEPARTMENT 2 (N EMPLOYEES)                           :: 6789
-3/ DEPARTMENT 3 (N EMPLOYEES)                           :: 4321
+3/ DEPARTMENT 1 (N EMPLOYEES)  Police                   :: 13061
+3/ DEPARTMENT 2 (N EMPLOYEES)   Fire                    :: 4837
+3/ DEPARTMENT 3 (N EMPLOYEES)   OEMC                    :: 2121
 
-## PYTHON 
+## PYTHON
 
-CHARACTER                                               :: NURSE
-NLINES                                                  :: 12
-
+CHARACTER                                               :: ROMEO
+NLINES                                                  :: 615

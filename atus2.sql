@@ -1,0 +1,3 @@
+--Employment. Tabulate whether or not the respondent worked last week as a fraction (1 = yes, 2 = no; exclude retired/disabled/unable 3-5 and no answer;
+--see TUFWK here).
+-- Group on the presence of a partner (spouse_or_partner_present: spouse 1 or partner 2, v. none 3; see TRSPPRES in the codebook).
